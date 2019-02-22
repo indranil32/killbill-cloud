@@ -71,14 +71,14 @@ module KPM
       super(logger, nexus_config, nexus_ssl_verify)
     end
 
-    def install(force_download=false, verify_sha1=true, local_war=false, war_path=nil)
+    def install(force_download=false, verify_sha1=true)
       bundles_dir = !@config.nil? ? @config['plugins_dir'] : (!@kaui_config.nil? ? @kaui_config['plugins_dir'] : nil)
       bundles_dir ||= DEFAULT_BUNDLES_DIR
 
       help = nil
       unless @config.nil?
         help = install_tomcat if @config['webapp_path'].nil?
-        install_killbill_server(@config['group_id'], @config['artifact_id'], @config['packaging'], @config['classifier'], @config['version'], @config['webapp_path'], bundles_dir, force_download, verify_sha1, local_war, war_path)
+        install_killbill_server(@config['group_id'], @config['artifact_id'], @config['packaging'], @config['classifier'], @config['version'], @config['webapp_path'], bundles_dir, force_download, verify_sha1, @config['local_war'], @config['war_path'])
         install_plugins(bundles_dir, @config['version'], force_download, verify_sha1)
         unless @config['default_bundles'] == false
           install_default_bundles(bundles_dir, @config['default_bundles_version'], @config['version'], force_download, verify_sha1)
