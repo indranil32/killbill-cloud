@@ -34,9 +34,12 @@ module KPM
     KAUI_CLASSIFIER  = nil
 
     class << self
-      def pull(logger, group_id, artifact_id, packaging='jar', classifier=nil, version='LATEST', destination_path=nil, sha1_file=nil, force_download=false, verify_sha1=true, overrides={}, ssl_verify=true)
+      def pull(logger, group_id, artifact_id, packaging='jar', classifier=nil, version='LATEST', destination_path=nil, sha1_file=nil, force_download=false, verify_sha1=true, local_war=false, war_path=nil, overrides={}, ssl_verify=true)
         coordinate_map = {:group_id => group_id, :artifact_id => artifact_id, :packaging => packaging, :classifier => classifier, :version => version}
-        pull_and_put_in_place(logger, coordinate_map, nil, destination_path, false, sha1_file, force_download, verify_sha1, overrides, ssl_verify)
+        if local_war &&  !war_path.nil?
+          pull_from_fs_and_put_in_place(logger, war_path, destination_path)
+        else
+          pull_and_put_in_place(logger, coordinate_map, nil, destination_path, false, sha1_file, force_download, verify_sha1, overrides, ssl_verify)
       end
 
       def pull_from_fs(logger, file_path, destination_path=nil)

@@ -15,7 +15,7 @@ module KPM
       @trace_logger = KPM::TraceLogger.new
     end
 
-    def install_killbill_server(specified_group_id=nil, specified_artifact_id=nil, specified_packaging=nil, specified_classifier=nil, specified_version=nil, specified_webapp_path=nil,  bundles_dir=nil, force_download=false, verify_sha1=true)
+    def install_killbill_server(specified_group_id=nil, specified_artifact_id=nil, specified_packaging=nil, specified_classifier=nil, specified_version=nil, specified_webapp_path=nil,  bundles_dir=nil, force_download=false, verify_sha1=true, local_war=false, war_path=nil)
       group_id = specified_group_id || KPM::BaseArtifact::KILLBILL_GROUP_ID
       artifact_id = specified_artifact_id || KPM::BaseArtifact::KILLBILL_ARTIFACT_ID
       packaging = specified_packaging || KPM::BaseArtifact::KILLBILL_PACKAGING
@@ -41,6 +41,8 @@ module KPM
                                        sha1_file,
                                        force_download,
                                        verify_sha1,
+                                       local_war,
+                                       war_path,
                                        @nexus_config,
                                        @nexus_ssl_verify)
       # store trace info to be returned as JSON by the KPM::Installer.install method

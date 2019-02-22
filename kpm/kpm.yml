@@ -2,6 +2,8 @@ killbill:
   version: 0.20.3-NEWREMMEDIA-SNAPSHOT
   webapp_path: /var/tmp/tomcat/webapps/ROOT
   plugins_dir: /var/tmp/bundles
+  local_war: true
+  war_path: ../killbill/profiles/target/
   plugins:
     java:
       - name: analytics

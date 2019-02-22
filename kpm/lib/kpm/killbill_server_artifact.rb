@@ -32,6 +32,8 @@ module KPM
                              nil,
                              false,
                              true,
+                             false,
+                             nil,
                              overrides,
                              ssl_verify)
 
@@ -54,6 +56,8 @@ module KPM
                               nil,
                               false,
                               true,
+                              false,
+                              nil,
                               overrides,
                               ssl_verify)
 
