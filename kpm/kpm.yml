@@ -12,14 +12,14 @@ killbill:
         org.killbill.billing.plugin.avatax.accountNumber: 2000115771
         org.killbill.billing.plugin.avatax.licenseKey: 94E61EFEBDDE01C0
       - name: email-notifications
-      	artifact_id: killbill-email-notifications-plugin
+        artifact_id: killbill-email-notifications-plugin
     ruby:
       - name: stripe
         api_secret_key: sk_test_BAuCQXrCZDlycpRES6m5llG8
         #pk_test_CmztJP46fhZLqKzLJGzRhfwC
       - name: kpm
       - name: paypal
-      	artifact_id: paypal-express-plugin
+        artifact_id: paypal-express-plugin
         signature: APJcBrX7qQZI2NqZoN9Bj1u5q7DdAir42G-Swa9OpT.Wr2TSh5ohCPRG
         login: indranil32-facilitator_api1.gmail.com
         password: ZX4SYR8KFGV7GFAQ

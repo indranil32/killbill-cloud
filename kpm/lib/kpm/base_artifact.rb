@@ -40,6 +40,7 @@ module KPM
           pull_from_fs_and_put_in_place(logger, war_path, destination_path)
         else
           pull_and_put_in_place(logger, coordinate_map, nil, destination_path, false, sha1_file, force_download, verify_sha1, overrides, ssl_verify)
+	end
       end
 
       def pull_from_fs(logger, file_path, destination_path=nil)
